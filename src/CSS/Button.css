@@ -1,0 +1,55 @@
+.btn-primary {
+  padding: 1.1rem 1.8rem;
+  background-color: #1b5e20;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background-color: #058110;
+  transform: translateY(-2px);
+  /* box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3); */
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-primary:focus {
+  outline: none;
+  /* box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3); */
+}
+
+/* Optional: Secondary button style */
+.btn-secondary {
+  padding: 0.6rem 1.8rem;
+  background-color: transparent;
+  color: #333;
+  border: 2px solid #333;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background-color: #333;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
