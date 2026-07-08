@@ -12,8 +12,8 @@ const App = () => {
 
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<Landing />} />
-          <Route path="landing" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="landing" element={<Landing />} />
         </Route>
       </Routes>
     </BrowserRouter>
