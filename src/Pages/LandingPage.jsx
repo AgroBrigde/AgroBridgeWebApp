@@ -26,14 +26,16 @@ const LandingPage = () => {
   return (
     <section className="landing-page">
       <div className="container">
-        <Platform />
-        <Works />
-        <WhoIt />
-        <Traction />
-        <Cta />
+        <HeroPage heroRef={partnersRef} />
+        <Gap gapRef={gapRef} />
+        {/* <Solution solutionsRef={solutionsRef} /> */}
+        <Platform platformRef={solutionsRef} />
+        <Works howItWorksRef={howItWorksRef} />
+        <WhoIt whoItRef={partnersRef} />
+        <Traction tractionRef={tractionRef} />
+        <Cta ctaRef={ctaRef} />
       </div>
     </section>
   );
 };
-
 export default LandingPage;
