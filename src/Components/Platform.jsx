@@ -1,6 +1,10 @@
 import { MdCheckCircle } from "react-icons/md";
 import farm from "../assets/farm.png";
 import "../CSS/Platform.css";
+import { TfiWorld } from "react-icons/tfi";
+import { BsTelephone } from "react-icons/bs";
+import { BsGraphUpArrow } from "react-icons/bs";
+import { IoLockClosedOutline } from "react-icons/io5";
 
 const Platform = ({ platformRef }) => {
   return (
@@ -25,28 +29,28 @@ const Platform = ({ platformRef }) => {
         <div className="platform-solutions-layout">
           <div className="platform-solutions-list">
             <div className="platform-solution-list-item">
-              <MdCheckCircle className="platform-list-icon" />
+              <TfiWorld className="platform-list-icon" />
               <p>
                 <strong>Web & Mobile —</strong> listings, Profile, Orders,
                 Secure Payments.
               </p>
             </div>
             <div className="platform-solution-list-item">
-              <MdCheckCircle className="platform-list-icon" />
+              <BsTelephone className="platform-list-icon" />
               <p>
                 <strong>USSD & SMS —</strong> list produce and check prices on
                 any basic phone.
               </p>
             </div>
             <div className="platform-solution-list-item">
-              <MdCheckCircle className="platform-list-icon" />
+              <BsGraphUpArrow className="platform-list-icon" />
               <p>
                 <strong>Price Guidance —</strong> trend-based data shows the
                 best time to sell.
               </p>
             </div>
             <div className="platform-solution-list-item">
-              <MdCheckCircle className="platform-list-icon" />
+              <IoLockClosedOutline className="platform-list-icon" />
               <p>
                 <strong>Secure Payments —</strong> farmers get paid only after
                 delivery is confirmed.

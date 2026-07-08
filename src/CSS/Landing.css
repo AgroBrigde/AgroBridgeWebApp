@@ -458,6 +458,12 @@
 }
 
 /* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 60px;
+  }
+}
+
 @media (max-width: 1024px) {
   .container {
     padding: 0 40px;
@@ -466,9 +472,21 @@
   .solutions-layout {
     flex-direction: column;
   }
+  .hero-card {
+    min-height: auto;
+  }
+  .hero-content {
+    width: 100%;
+    padding: 40px 32px;
+  }
   .hero-visual {
     width: 100%;
-    min-height: 300px;
+    min-height: 250px;
+    padding-right: 0;
+  }
+  .hero-visual img {
+    object-fit: cover;
+    max-height: 300px;
   }
   .stepper-flex-container {
     flex-direction: column;
@@ -492,6 +510,19 @@
   .stats-row {
     flex-direction: column;
   }
+  .section-card {
+    height: auto;
+    min-height: auto;
+  }
+  .hero-content h1 {
+    font-size: 32px;
+  }
+  .section-header-lined {
+    font-size: 24px;
+  }
+  .section-title {
+    font-size: 24px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -505,12 +536,133 @@
     padding: 32px 20px;
     text-align: center;
   }
+  .hero-content h1 {
+    font-size: 28px;
+  }
+  .hero-description {
+    font-size: 15px;
+    max-width: 100%;
+  }
   .hero-buttons,
   .cta-buttons {
     justify-content: center;
+    flex-wrap: wrap;
   }
   .section-header-lined::before,
   .section-header-lined::after {
     display: none;
   } /* Clean titles on small mobile */
+  .section-header-lined {
+    font-size: 22px;
+    white-space: normal;
+    text-align: center;
+  }
+  .section-description {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .stat-number {
+    font-size: 34px;
+  }
+  .stat-item p {
+    font-size: 14px;
+  }
+  .solutions-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .solutions-layout {
+    gap: 32px;
+  }
+  .solution-list-item p {
+    font-size: 14px;
+  }
+  .partner-card {
+    padding: 28px 20px;
+  }
+  .cta-content-wrapper h2 {
+    font-size: 22px;
+  }
+  .cta-content-wrapper p {
+    font-size: 14px;
+  }
+  .btn-primary,
+  .btn-secondary {
+    font-size: 14px;
+    padding: 10px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+  .section-card {
+    padding: 24px 16px;
+    border-radius: 10px;
+  }
+  .hero-content {
+    padding: 24px 16px;
+  }
+  .hero-content h1 {
+    font-size: 24px;
+  }
+  .hero-description {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    width: 100%;
+    max-width: 260px;
+  }
+  .hero-visual {
+    min-height: 180px;
+  }
+  .hero-visual img {
+    max-height: 220px;
+  }
+  .section-header-lined {
+    font-size: 20px;
+  }
+  .section-title {
+    font-size: 20px;
+  }
+  .stat-number {
+    font-size: 28px;
+  }
+  .stat-item {
+    padding: 0 12px;
+  }
+  .partner-card {
+    padding: 24px 16px;
+  }
+  .partner-icon-wrapper {
+    width: 64px;
+    height: 64px;
+  }
+  .partner-icon-wrapper svg {
+    font-size: 26px;
+  }
+  .cta-content-wrapper h2 {
+    font-size: 20px;
+  }
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-secondary {
+    width: 100%;
+    max-width: 260px;
+  }
+  .btn-primary,
+  .btn-secondary {
+    font-size: 13px;
+    padding: 10px 20px;
+  }
 }

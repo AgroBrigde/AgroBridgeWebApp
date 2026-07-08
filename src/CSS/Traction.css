@@ -66,3 +66,51 @@
   color: #696c6d;
   font-weight: 600;
 }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .traction-images {
+    gap: 32px;
+  }
+  .traction-placeholder-text {
+    width: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .traction-section-card {
+    padding: 32px 20px;
+  }
+  .traction-section-title {
+    font-size: 22px;
+  }
+  .traction-list li {
+    font-size: 14px;
+  }
+  .traction-images {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .traction-placeholder-text {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .traction-section-card {
+    padding: 24px 16px;
+    border-radius: 12px;
+  }
+  .traction-section-title {
+    font-size: 20px;
+  }
+  .traction-list {
+    margin-bottom: 32px;
+  }
+  .traction-list li {
+    font-size: 13px;
+    padding-left: 16px;
+  }
+}

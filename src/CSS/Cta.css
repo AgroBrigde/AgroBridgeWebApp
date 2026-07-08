@@ -8,6 +8,12 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 
+.cta-section-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .cta-card {
   padding: 64px;
 
@@ -74,4 +80,47 @@
 .cta-btn-secondary:hover {
   border-color: #1b5e3a;
   color: #1b5e3a;
+  background: #fff;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .cta-card {
+    padding: 48px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-card {
+    padding: 32px 20px;
+  }
+  .cta-content-wrapper h2 {
+    font-size: 20px;
+  }
+  .cta-content-wrapper p {
+    font-size: 14px;
+  }
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cta-btn-primary,
+  .cta-btn-secondary {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-card {
+    padding: 24px 16px;
+  }
+  .cta-content-wrapper h2 {
+    font-size: 18px;
+  }
+  .cta-btn-primary,
+  .cta-btn-secondary {
+    font-size: 14px;
+    padding: 10px 24px;
+  }
 }
