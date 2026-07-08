@@ -34,7 +34,7 @@
   /* border-radius: 16px; */
   /* padding: 64px; */
   /* background: blue; */
-  height: 420px;
+  height: 450px;
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Extremely subtle depth */
@@ -174,7 +174,7 @@
   justify-content: flex-end;
   align-items: center;
   height: 100%;
-  width: 60%;
+  width: 100%;
   padding-right: 10px;
   /* background: red; */
   /* min-height: 400px; */
@@ -183,8 +183,8 @@
 
 .hero-visual img {
   width: 100%;
-  height: 60%;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* ========== GAP SECTION ========== */
