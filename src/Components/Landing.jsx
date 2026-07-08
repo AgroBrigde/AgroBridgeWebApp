@@ -254,7 +254,9 @@ const Landing = () => {
               <p>
                 Farmers, buyers, or investors — join us as we build a better
                 agricultural supply chain for Nigeria.
+
               </p>
+              
               <div className="cta-buttons">
                 <button className="btn-primary">Partner with Us</button>
                 <button className="btn-secondary">Join Waitlist</button>

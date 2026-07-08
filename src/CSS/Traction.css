@@ -1,0 +1,68 @@
+/* ========== TRACTION SECTION ========== */
+.traction-section-wrapper {
+  margin-bottom: 40px;
+}
+
+.traction-section-card {
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  padding: 64px;
+  border-radius: 16px;
+}
+
+.traction-section-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a3c2a;
+  text-align: center;
+}
+
+.traction-mb-large {
+  margin-bottom: 40px;
+}
+
+.traction-list {
+  max-width: 900px;
+  margin: 0 auto 48px;
+  list-style: none;
+}
+
+.traction-list li {
+  font-size: 15px;
+  color: #4a6b5a;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.traction-list li::before {
+  content: "•";
+  color: #4a6b5a;
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
+.traction-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.traction-placeholder-text {
+  width: 300px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 12px;
+  text-align: center;
+
+  color: #696c6d;
+  font-weight: 600;
+}

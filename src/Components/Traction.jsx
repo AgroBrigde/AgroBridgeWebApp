@@ -1,8 +1,17 @@
+import "../CSS/Traction.css";
+import mobile from "../assets/mobile2.png";
+import phone from "../assets/phone.png";
+import code from "../assets/code.png";
+
 const Traction = ({ tractionRef }) => {
   return (
-    <section ref={tractionRef} id="traction" className="section-wrapper">
-      <div className="section-card">
-        <h2 className="section-title mb-large">Traction</h2>
+    <section
+      ref={tractionRef}
+      id="traction"
+      className="traction-section-wrapper"
+    >
+      <div className="traction-section-card">
+        <h2 className="traction-section-title traction-mb-large">Traction</h2>
 
         <ul className="traction-list">
           <li>
@@ -28,10 +37,17 @@ const Traction = ({ tractionRef }) => {
         </ul>
 
         <div className="traction-images">
-          <div className="traction-placeholder-text">Live API</div>
-          <div className="traction-placeholder-text">USSD Demo Available</div>
           <div className="traction-placeholder-text">
-            Working Machine Learning (ML) Model
+            <img src={code} alt="Live API" />
+            <h3>Live API</h3>
+          </div>
+          <div className="traction-placeholder-text">
+            <img src={phone} alt="USSD Demo" />
+            <h4>USSD Demo Available</h4>
+          </div>
+          <div className="traction-placeholder-text">
+            <img src={mobile} alt="ML Model" />
+            <h4>Working Machine Learning (ML) Model</h4>
           </div>
         </div>
       </div>
