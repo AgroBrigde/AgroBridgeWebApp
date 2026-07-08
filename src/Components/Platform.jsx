@@ -2,10 +2,10 @@ import { MdCheckCircle } from "react-icons/md";
 import farm from "../assets/farm.png";
 import "../CSS/Platform.css";
 
-const Platform = ({ solutionsRef }) => {
+const Platform = ({ platformRef }) => {
   return (
     <section
-      ref={solutionsRef}
+      ref={platformRef}
       id="solutions"
       className="platform-section-wrapper"
     >
