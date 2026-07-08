@@ -1,0 +1,114 @@
+/* ========== HOW IT WORKS SECTION ========== */
+.works-section-wrapper {
+  margin-bottom: 40px;
+}
+
+.works-section-card {
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  padding: 64px;
+  border-radius: 16px;
+}
+
+.works-section-header-lined {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a3c2a;
+  margin-bottom: 16px;
+  white-space: nowrap;
+}
+
+.works-section-header-lined::before,
+.works-section-header-lined::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e0ebe4;
+}
+
+.works-section-header-lined::before {
+  margin-right: 24px;
+}
+
+.works-section-header-lined::after {
+  margin-left: 24px;
+}
+
+.works-section-description {
+  font-size: 15px;
+  color: #4a6b5a;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.works-stepper-flex-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+
+.works-step-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 10px;
+  max-width: 200px;
+}
+
+.works-step-circle {
+  width: 40px;
+  height: 40px;
+  background: #1b5e3a;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.works-step-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a3c2a;
+  margin-bottom: 12px;
+}
+
+.works-step-desc {
+  font-size: 13px;
+  color: #4a6b5a;
+  line-height: 1.5;
+}
+
+.works-step-connector {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  position: relative;
+  min-width: 40px;
+}
+
+.works-connector-line {
+  flex: 1;
+  height: 2px;
+  background-color: #d1d5d3;
+}
+
+.works-connector-arrow {
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #d1d5d3;
+  border-right: 2px solid #d1d5d3;
+  transform: rotate(45deg);
+  margin-left: -4px;
+}

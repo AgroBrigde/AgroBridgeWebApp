@@ -1,0 +1,124 @@
+/* ========== WHO IT'S FOR / PARTNERS SECTION ========== */
+.whoit-section-wrapper {
+  margin-bottom: 40px;
+}
+
+.whoit-section-card {
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  padding: 54px;
+  border-radius: 16px;
+}
+
+.whoit-section-header-lined {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a3c2a;
+  margin-bottom: 16px;
+  white-space: nowrap;
+}
+
+.whoit-section-header-lined::before,
+.whoit-section-header-lined::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e0ebe4;
+}
+
+.whoit-section-header-lined::before {
+  margin-right: 24px;
+}
+
+.whoit-section-header-lined::after {
+  margin-left: 24px;
+}
+
+.whoit-section-description {
+  font-size: 15px;
+  color: #4a6b5a;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.whoit-partners-layout {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 48px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.whoit-partner-card {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  padding: 28px 24px;
+  text-align: left;
+  border: 1px solid #e0ebe4;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.whoit-partner-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background: #1b5e3a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.whoit-partner-icon-wrapper svg {
+  font-size: 32px;
+  color: #ffffff;
+}
+
+.whoit-partner-card > div:last-child {
+  flex: 1;
+}
+
+.whoit-partner-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #1a3c2a;
+}
+
+.whoit-partner-card p {
+  font-size: 14px;
+  color: #4a6b5a;
+  line-height: 1.7;
+}
+
+@media (max-width: 960px) {
+  .whoit-partners-layout {
+    flex-direction: column;
+  }
+
+  .whoit-partner-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .whoit-partner-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .whoit-partner-card > div:last-child {
+    width: 100%;
+  }
+}
