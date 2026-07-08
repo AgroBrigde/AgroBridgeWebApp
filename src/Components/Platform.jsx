@@ -1,9 +1,9 @@
 import { MdCheckCircle } from "react-icons/md";
 import platformImage from "../assets/famers.png";
 
-const Platform = ({ solutionsRef }) => {
+const Platform = ({ platformRef }) => {
   return (
-    <section ref={solutionsRef} id="solutions" className="section-wrapper">
+    <section ref={platformRef} id="solutions" className="section-wrapper">
       <div className="section-card">
         <div className="solutions-header mb-large">
           <MdCheckCircle className="title-icon" />
