@@ -50,7 +50,7 @@ const Landing = () => {
     <div className="landing-page">
       <div className="container">
         {/* ========== HERO SECTION ========== */}
-       
+
         {/* ========== THE GAP SECTION ========== */}
         <section ref={gapRef} id="the-gap" className="section-wrapper">
           <div className="section-card">
