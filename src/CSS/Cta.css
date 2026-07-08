@@ -80,6 +80,7 @@
 .cta-btn-secondary:hover {
   border-color: #1b5e3a;
   color: #1b5e3a;
+  background: #fff;
 }
 
 /* ========== RESPONSIVE ========== */
