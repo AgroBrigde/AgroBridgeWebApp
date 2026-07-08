@@ -1,22 +1,13 @@
-import React, { useRef } from "react";
+import React from "react";
 import "../CSS/Landing.css";
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
-import heroImage from "../assets/famers.png"; // Replace with your image
-import farmerImage from "../assets/famers.png"; // Replace with your image
-import buyerImage from "../assets/famers.png"; // Replace with your image
-import partnerImage from "../assets/famers.png"; // Replace with your image
+import heroImage from "../assets/famers.png";
+import platformImage from "../assets/famers.png";
 import { useOutletContext } from "react-router-dom";
-import {
-  MdPhoneIphone,
-  MdTrendingUp,
-  MdSecurity,
-  MdArrowForward,
-} from "react-icons/md";
+import { MdCheckCircle, MdStorefront, MdHandshake } from "react-icons/md";
+import { FaTractor } from "react-icons/fa";
 
 const Landing = () => {
   const { refs } = useOutletContext();
-
   const {
     heroRef,
     gapRef,
@@ -27,17 +18,48 @@ const Landing = () => {
     ctaRef,
   } = refs;
 
+  const steps = [
+    {
+      num: 1,
+      title: "Sign up / Onboard",
+      desc: "Farmers and buyers create an account in minutes.",
+    },
+    {
+      num: 2,
+      title: "List & Discover",
+      desc: "Farmers list produce. Buyers discover quality produce.",
+    },
+    {
+      num: 3,
+      title: "Negotiate & Connect",
+      desc: "Buyers & farmers connect and agree on terms.",
+    },
+    {
+      num: 4,
+      title: "Complete & Deliver",
+      desc: "Orders are confirmed and produce is delivered.",
+    },
+    {
+      num: 5,
+      title: "Secure Payments",
+      desc: "Payments are released securely after confirmation.",
+    },
+  ];
+
   return (
     <div className="landing-page">
-      {/* Hero Section */}
-      <section ref={heroRef} id="hero" className="hero-section">
-        <div className="container">
-          <div className="hero-content">
-            <div className="hero-text">
-              <h1>Connecting Farmers to Markets Using Technology</h1>
+      <div className="container">
+        {/* ========== HERO SECTION ========== */}
+        <section ref={heroRef} id="hero" className="section-wrapper">
+          <div className="section-card hero-card">
+            <div className="hero-content">
+              <h1>
+                Connecting Farmers to Markets Using{" "}
+                <span className="highlight">Technology</span>
+              </h1>
               <p className="hero-description">
                 AgroBridge is a tech-driven platform that connects farmers to
-                reliable buyers – with a full app experience, or simple USSD
+                reliable buyers — with a full app experience, or simple USSD
                 access for those without a smartphone.
               </p>
               <div className="hero-buttons">
@@ -45,218 +67,226 @@ const Landing = () => {
                 <button className="btn-secondary">Join Waitlist</button>
               </div>
             </div>
-            <div className="hero-image">
-              <img src={heroImage} alt="AgroBridge Platform" />
+            <div className="hero-visual">
+              {/* The gradient background in Figma is likely this unloaded image. Kept untouched! */}
+              <img src={heroImage} alt="AgroBridge Farmers" />
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* The Gap We Are Closing */}
-      <section ref={gapRef} id="the-gap" className="gap-section">
-        <div className="container">
-          <h2 className="section-title">The Gap We Are Closing</h2>
-          <p className="section-description">
-            Nigerian smallholder farmers lose income to middlemen, unreliable
-            pricing, and produce that spoils before reaching a buyer. Buyers
-            struggle to find trustworthy suppliers and consistent pricing. Most
-            existing agritech platforms are too infrastructure for rural and
-            low-literacy users to actually use.
-          </p>
-          <div className="stats-grid">
-            <div className="stat-card">
-              <span className="stat-number">10/12</span>
-              <p>Farmers rely on middlemen to sell</p>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">9/12</span>
-              <p>Lack access to reliable price information</p>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">8/12</span>
-              <p>Experience post-harvest losses</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Solutions Section */}
-      <section ref={solutionsRef} id="solutions" className="solutions-section">
-        <div className="container">
-          <h2 className="section-title">One Platform, Every Farmer</h2>
-          <p className="section-description">
-            AgroBridge connects farmers directly to buyers – built to work
-            everywhere, not just where there is good internet.
-          </p>
-          <div className="solutions-grid">
-            <div className="solution-card">
-              <div className="solution-icon">
-                <MdPhoneIphone color="#2e7d5e" />
-              </div>
-              <h3>USSD & SMS</h3>
-              <p>List produce and check prices on any basic phone.</p>
-            </div>
-            <div className="solution-card">
-              <div className="solution-icon">
-                <MdTrendingUp color="#2e7d5e" />
-              </div>
-              <h3>Price Guidance</h3>
-              <p>Trend-based data shows the best time to sell.</p>
-            </div>
-            <div className="solution-card">
-              <div className="solution-icon">
-                <MdSecurity color="#2e7d5e" />
-              </div>
-              <h3>Secure Payments</h3>
-              <p>Farmers get paid only after delivery is confirmed.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section
-        ref={howItWorksRef}
-        id="how-it-works"
-        className="how-it-works-section"
-      >
-        <div className="container">
-          <h2 className="section-title">How It Works</h2>
-          <p className="section-description">Simple steps. Powerful impact.</p>
-          <div className="steps-grid">
-            <div className="step-card">
-              <div className="step-number">1</div>
-              <h3>Sign up / Onboard</h3>
-              <p>Farmers and buyers create an account in minutes.</p>
-            </div>
-            <div className="step-card">
-              <div className="step-number">2</div>
-              <h3>List & Discover</h3>
-              <p>Farmers list produce. Buyers discover quality produce.</p>
-            </div>
-            <div className="step-card">
-              <div className="step-number">3</div>
-              <h3>Negotiate & Connect</h3>
-              <p>Buyers & farmers connect and agree on terms.</p>
-            </div>
-            <div className="step-card">
-              <div className="step-number">4</div>
-              <h3>Complete & Deliver</h3>
-              <p>Orders are confirmed and produce is delivered.</p>
-            </div>
-            <div className="step-card">
-              <div className="step-number">5</div>
-              <h3>Secure Payments</h3>
-              <p>Payments are released securely after confirmation.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Partners Section */}
-      <section ref={partnersRef} id="partners" className="partners-section">
-        <div className="container">
-          <h2 className="section-title">Who It's For</h2>
-          <p className="section-description">
-            Built for everyone in the Agri-ecosystem
-          </p>
-          <div className="partners-grid">
-            <div className="partner-card">
-              <img src={farmerImage} alt="Farmers" className="partner-image" />
-              <h3>Farmers</h3>
-              <p>
-                Get better market prices, access to unlimited market, and
-                insights to grow income sustainably.
-              </p>
-            </div>
-            <div className="partner-card">
-              <img src={buyerImage} alt="Buyers" className="partner-image" />
-              <h3>Buyers</h3>
-              <p>
-                Source quality produce efficiently from reliable, verified and
-                trusted farmers.
-              </p>
-            </div>
-            <div className="partner-card">
-              <img
-                src={partnerImage}
-                alt="Partners"
-                className="partner-image"
-              />
-              <h3>Partners</h3>
-              <p>
-                Integrate, collaborate, and scale impact across the agricultural
-                value chain.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Traction Section */}
-      <section ref={tractionRef} id="traction" className="traction-section">
-        <div className="container">
-          <h2 className="section-title">Traction</h2>
-          <div className="traction-grid">
-            <div className="traction-card">
-              <h3>Live API</h3>
-              <p>
-                Our backend infrastructure is live and functional, powering
-                real-time listings, pricing, and transactions between farmers
-                and buyers.
-              </p>
-            </div>
-            <div className="traction-card">
-              <h3>Working ML Model</h3>
-              <p>
-                Our machine learning model analyzes market data to generate
-                price trend guidance, helping farmers know the best time to
-                sell.
-              </p>
-            </div>
-            <div className="traction-card">
-              <h3>USSD Demo Available</h3>
-              <p>
-                A working USSD demo lets farmers without smartphones list
-                produce and check prices using any basic phone, ready to show
-                live.
-              </p>
-            </div>
-          </div>
-          <div className="traction-tags">
-            <span className="traction-tag">Live API</span>
-            <span className="traction-tag">USSD Demo Available</span>
-            <span className="traction-tag">
-              Working Machine Learning (ML) Model
-            </span>
-          </div>
-          <div className="traction-extra">
-            <p>
-              Validated through direct research with 12 farmers and 5 buyers
-              across Nigeria's agricultural value chain.
+        {/* ========== THE GAP SECTION ========== */}
+        <section ref={gapRef} id="the-gap" className="section-wrapper">
+          <div className="section-card">
+            <h2 className="section-header-lined">The Gap We Are Closing</h2>
+            <p className="section-description">
+              Nigerian smallholder farmers lose income to middlemen, unreliable
+              pricing, and produce that spoils before reaching a buyer. Buyers
+              struggle to find trustworthy suppliers and consistent pricing.
+              Most existing agritech platforms are too infrastructure for rural
+              and low-literacy users to actually use.
             </p>
-            <p>Design system and product requirements complete.</p>
+            <div className="stats-row">
+              <div className="stat-item">
+                <span className="stat-number">10/12</span>
+                <p>Farmers rely on middlemen to sell</p>
+              </div>
+              <div className="stat-item divider">
+                <span className="stat-number">9/12</span>
+                <p>Lack access to reliable price information</p>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">8/12</span>
+                <p>Experience post-harvest losses</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section ref={ctaRef} id="cta" className="cta-section">
-        <div className="container">
-          <h2 className="section-title">
-            Let's build the future of Agriculture together
-          </h2>
-          <p className="section-description">
-            Farmers, buyers, or investors – join us as we build a better
-            agricultural supply chain for Nigeria.
-          </p>
-          <div className="cta-buttons">
-            <button className="btn-primary">Partner with Us</button>
-            <button className="btn-secondary">Join Waitlist</button>
-            <button className="btn-tertiary">Get in Touch</button>
+        {/* ========== SOLUTIONS (ONE PLATFORM) ========== */}
+        <section ref={solutionsRef} id="solutions" className="section-wrapper">
+          <div className="section-card">
+            <div className="solutions-header mb-large">
+              <MdCheckCircle className="title-icon" />
+              <h2 className="section-title mb-0">One Platform, Every Farmer</h2>
+            </div>
+
+            <p className="section-description text-left">
+              AgroBridge connects farmers directly to buyers — built to work
+              everywhere, not just where there is good internet.
+            </p>
+
+            <div className="solutions-layout">
+              <div className="solutions-list">
+                <div className="solution-list-item">
+                  <MdCheckCircle className="list-icon" />
+                  <p>
+                    <strong>Web & Mobile —</strong> listings, Profile, Orders,
+                    Secure Payments.
+                  </p>
+                </div>
+                <div className="solution-list-item">
+                  <MdCheckCircle className="list-icon" />
+                  <p>
+                    <strong>USSD & SMS —</strong> list produce and check prices
+                    on any basic phone.
+                  </p>
+                </div>
+                <div className="solution-list-item">
+                  <MdCheckCircle className="list-icon" />
+                  <p>
+                    <strong>Price Guidance —</strong> trend-based data shows the
+                    best time to sell.
+                  </p>
+                </div>
+                <div className="solution-list-item">
+                  <MdCheckCircle className="list-icon" />
+                  <p>
+                    <strong>Secure Payments —</strong> farmers get paid only
+                    after delivery is confirmed.
+                  </p>
+                </div>
+              </div>
+              <div className="solutions-visual">
+                <img src={platformImage} alt="Platform in use" />
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* ========== HOW IT WORKS ========== */}
+        <section
+          ref={howItWorksRef}
+          id="how-it-works"
+          className="section-wrapper"
+        >
+          <div className="section-card">
+            <h2 className="section-header-lined">How It Works</h2>
+            <p className="section-description">
+              Simple steps. Powerful impact.
+            </p>
+
+            <div className="stepper-flex-container">
+              {steps.map((step, index) => (
+                <React.Fragment key={step.num}>
+                  <div className="step-item">
+                    <div className="step-circle">{step.num}</div>
+                    <h3 className="step-title">{step.title}</h3>
+                    <p className="step-desc">{step.desc}</p>
+                  </div>
+                  {/* Dynamic arrows between steps - exactly like the Figma prototype */}
+                  {index < steps.length - 1 && (
+                    <div className="step-connector">
+                      <div className="connector-line"></div>
+                      <div className="connector-arrow"></div>
+                    </div>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ========== WHO IT'S FOR (PARTNERS) ========== */}
+        <section ref={partnersRef} id="partners" className="section-wrapper">
+          <div className="section-card">
+            <h2 className="section-header-lined">Who It's For</h2>
+            <p className="section-description">
+              Built for everyone in the Agri-ecosystem
+            </p>
+
+            <div className="partners-layout">
+              <div className="partner-card">
+                <div className="partner-icon-wrapper">
+                  <FaTractor />
+                </div>
+                <h3 className="step-title">Farmers</h3>
+                <p>
+                  Get better market prices, access to unlimited market, and
+                  insights to grow income sustainably.
+                </p>
+              </div>
+              <div className="partner-card">
+                <div className="partner-icon-wrapper">
+                  <MdStorefront />
+                </div>
+                <h3 className="step-title">Buyers</h3>
+                <p>
+                  Source quality produce efficiently from reliable, verified and
+                  trusted farmers.
+                </p>
+              </div>
+              <div className="partner-card">
+                <div className="partner-icon-wrapper">
+                  <MdHandshake />
+                </div>
+                <h3 className="step-title">Partners</h3>
+                <p>
+                  Integrate, collaborate, and scale impact across the
+                  agricultural value chain.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ========== TRACTION ========== */}
+        <section ref={tractionRef} id="traction" className="section-wrapper">
+          <div className="section-card">
+            <h2 className="section-title mb-large">Traction</h2>
+
+            <ul className="traction-list">
+              <li>
+                <strong>Live API —</strong> Our backend infrastructure is live
+                and functional, powering real-time listings, pricing, and
+                transactions between farmers and buyers.
+              </li>
+              <li>
+                <strong>Working ML Model —</strong> Our machine learning model
+                analyzes market data to generate price trend guidance, helping
+                farmers know the best time to sell.
+              </li>
+              <li>
+                <strong>USSD Demo Available —</strong> A working USSD demo lets
+                farmers without smartphones list produce and check prices using
+                any basic phone, ready to show live.
+              </li>
+              <li>
+                Validated through direct research with 12 farmers and 5 buyers
+                across Nigeria's agricultural value chain.
+              </li>
+              <li>Design system and product requirements complete.</li>
+            </ul>
+
+            <div className="traction-images">
+              <div className="traction-placeholder-text">Live API</div>
+              <div className="traction-placeholder-text">
+                USSD Demo Available
+              </div>
+              <div className="traction-placeholder-text">
+                Working Machine Learning (ML) Model
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ========== CTA SECTION ========== */}
+        <section ref={ctaRef} id="cta" className="section-wrapper">
+          <div className="section-card cta-card">
+            <div className="cta-content-wrapper">
+              <h2>Let's build the future of Agriculture together</h2>
+              <p>
+                Farmers, buyers, or investors — join us as we build a better
+                agricultural supply chain for Nigeria.
+              </p>
+              <div className="cta-buttons">
+                <button className="btn-primary">Partner with Us</button>
+                <button className="btn-secondary">Join Waitlist</button>
+                <button className="btn-secondary">Get in Touch</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
