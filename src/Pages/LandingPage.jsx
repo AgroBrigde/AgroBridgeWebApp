@@ -26,9 +26,9 @@ const LandingPage = () => {
     <section>
       <div>
         <HeroPage heroRef={heroRef} />
-        <Solution solutionsRef={solutionsRef} />
         <Gap gapRef={gapRef} />
-        <Platform platformRef={platformRef} />
+        {/* <Platform platformRef={platformRef} /> */}
+        <Solution solutionsRef={solutionsRef} />
         <Works worksRef={howItWorksRef} />
         <WhoIt whoItRef={partnersRef} />
         <Traction tractionRef={tractionRef} />
