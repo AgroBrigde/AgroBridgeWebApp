@@ -1,6 +1,8 @@
-import { FaTractor } from "react-icons/fa";
+import { LiaUserCogSolid } from "react-icons/lia";
 import { MdHandshake, MdStorefront } from "react-icons/md";
 import "../CSS/WhoIt.css";
+import { PiHandshakeLight } from "react-icons/pi";
+import { PiShoppingCartLight } from "react-icons/pi";
 
 const WhoIt = ({ partnersRef }) => {
   return (
@@ -14,7 +16,7 @@ const WhoIt = ({ partnersRef }) => {
         <div className="whoit-partners-layout">
           <div className="whoit-partner-card">
             <div className="whoit-partner-icon-wrapper">
-              <FaTractor />
+              <LiaUserCogSolid />
             </div>
             <div>
               <h3 className="whoit-step-title">Farmers</h3>
@@ -26,7 +28,7 @@ const WhoIt = ({ partnersRef }) => {
           </div>
           <div className="whoit-partner-card">
             <div className="whoit-partner-icon-wrapper">
-              <MdStorefront />
+              <PiShoppingCartLight />
             </div>
             <div>
               <h3 className="whoit-step-title">Buyers</h3>
@@ -38,7 +40,7 @@ const WhoIt = ({ partnersRef }) => {
           </div>
           <div className="whoit-partner-card">
             <div className="whoit-partner-icon-wrapper">
-              <MdHandshake />
+              <PiHandshakeLight />
             </div>
             <div>
               <h3 className="whoit-step-title">Partners</h3>
