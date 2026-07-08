@@ -7,6 +7,12 @@ import farmerImage from "../assets/famers.png"; // Replace with your image
 import buyerImage from "../assets/famers.png"; // Replace with your image
 import partnerImage from "../assets/famers.png"; // Replace with your image
 import { useOutletContext } from "react-router-dom";
+import {
+  MdPhoneIphone,
+  MdTrendingUp,
+  MdSecurity,
+  MdArrowForward,
+} from "react-icons/md";
 
 const Landing = () => {
   const { refs } = useOutletContext();
@@ -84,17 +90,23 @@ const Landing = () => {
           </p>
           <div className="solutions-grid">
             <div className="solution-card">
-              <div className="solution-icon">📱</div>
+              <div className="solution-icon">
+                <MdPhoneIphone color="#2e7d5e" />
+              </div>
               <h3>USSD & SMS</h3>
               <p>List produce and check prices on any basic phone.</p>
             </div>
             <div className="solution-card">
-              <div className="solution-icon">📊</div>
+              <div className="solution-icon">
+                <MdTrendingUp color="#2e7d5e" />
+              </div>
               <h3>Price Guidance</h3>
               <p>Trend-based data shows the best time to sell.</p>
             </div>
             <div className="solution-card">
-              <div className="solution-icon">🔒</div>
+              <div className="solution-icon">
+                <MdSecurity color="#2e7d5e" />
+              </div>
               <h3>Secure Payments</h3>
               <p>Farmers get paid only after delivery is confirmed.</p>
             </div>
