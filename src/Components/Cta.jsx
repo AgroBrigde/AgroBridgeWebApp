@@ -1,5 +1,5 @@
 import "../CSS/Cta.css";
-import ctaImage from "../assets/grASSICON 1.png   ";
+import ctaImage from "../assets/grass.png";
 
 const Cta = ({ ctaRef }) => {
   return (
