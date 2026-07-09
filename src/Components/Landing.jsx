@@ -5,6 +5,7 @@ import platformImage from "../assets/famers.png";
 import { useOutletContext } from "react-router-dom";
 import { MdCheckCircle, MdStorefront, MdHandshake } from "react-icons/md";
 import { FaTractor } from "react-icons/fa";
+import Hero from "./Hero";
 
 const Landing = () => {
   const { refs } = useOutletContext();
@@ -50,6 +51,7 @@ const Landing = () => {
     <div className="landing-page">
       <div className="container">
         {/* ========== HERO SECTION ========== */}
+        <Hero />
 
         {/* ========== THE GAP SECTION ========== */}
         <section ref={gapRef} id="the-gap" className="section-wrapper">
@@ -254,9 +256,8 @@ const Landing = () => {
               <p>
                 Farmers, buyers, or investors — join us as we build a better
                 agricultural supply chain for Nigeria.
-
               </p>
-              
+
               <div className="cta-buttons">
                 <button className="btn-primary">Partner with Us</button>
                 <button className="btn-secondary">Join Waitlist</button>

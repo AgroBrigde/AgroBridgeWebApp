@@ -12,8 +12,7 @@
   color: #1a3c2a;
   overflow-x: hidden;
   /* The soft green background seen across all prototype screenshots */
-  background-color: #f1f8f4;
-  padding: 40px 0 80px;
+  background-color: var(--subtle);
 }
 
 .container {

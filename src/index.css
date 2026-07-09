@@ -3,3 +3,47 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+
+
+body {
+  /* background-color: var(--subtle); */
+}
+
+:root {
+  --main: #1B5E20;
+  --pressed: #144A18;
+  --light: #A5D6A7;
+  --subtle: #E8F5E9;
+  --success: #2E7D32;
+  --error: #C62828;
+  --sss: #FDFAFE;
+  --warning: #F57F17;
+  --backgro:  #F5F0E6;
+  --surface: #FFFFFF;
+  --primary: #263238;
+  --sec: #546E7A;
+  --overlay: #000000;
+  --borders: #E0E0E0;
+  --disabled: #9E9E9E;
+
+  /* FONT SIZES */
+
+  --heading: 32px;
+  --medium: 24px;
+  --body: 16px;
+  --regular: 15px;
+}
+
+
+h1 {
+  font-size: var(--heading);
+}
+
+h2 {
+  font-size: var(--medium);
+}
+
+p {
+  font-size: var(--body);
+}
