@@ -2,8 +2,10 @@ import React from "react";
 import "../CSS/Header.css";
 import logo from "../assets/logo.png";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom"; // <-- FIXED: added curly braces
 
 const Header = ({ scrollToSection }) => {
+  const navigate = useNavigate(); // Initialize the navigate function
   return (
     <header className="header">
       <div className="logo-container">
@@ -38,7 +40,7 @@ const Header = ({ scrollToSection }) => {
       </nav>
 
       <div className="button-container">
-        <Button text="Join Waitlist" />
+        <Button onClick={() => navigate("/waitlist")} text="Join Waitlist" />
       </div>
     </header>
   );

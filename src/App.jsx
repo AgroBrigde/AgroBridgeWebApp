@@ -4,6 +4,7 @@ import ScrollToTop from "./Hooks/ScrollToTop";
 import MainLayout from "./Layout/MainLayout";
 import LandingPage from "./Pages/LandingPage";
 import Landing from "./Components/Landing";
+import WaitlistScreen from "./Pages/WaitListScreen";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route element={<MainLayout />}>
           <Route path="/" element={<LandingPage />} />
           <Route path="landing" element={<Landing />} />
+          <Route path="waitlist" element={<WaitlistScreen />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,282 @@
+/* WaitlistScreen.css */
+* {
+  box-sizing: border-box;
+}
+
+.waitlist-container {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  background-color: #ffffff;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.hero-text {
+  flex: 1;
+  background-color: #f6fcf1;
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 300px;
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+}
+
+.hero-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #155e2e;
+  margin: 0 0 16px 0;
+}
+
+.hero-text p {
+  color: #4b5563;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0 0 12px 0;
+}
+
+.hero-image-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  /* Dark green gradient background like the screenshot */
+  background: linear-gradient(90deg, #3a6a3a, #1e4620);
+  min-height: 320px;
+  min-width: 300px;
+  overflow: hidden;
+}
+
+.hero-image-wrapper img {
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom center;
+  display: block;
+}
+
+/* --- Form Section --- */
+.form-section {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #1f2937;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: #155e2e;
+  box-shadow: 0 0 0 3px rgba(21, 94, 46, 0.1);
+}
+
+.form-group input::placeholder {
+  color: #9ca3af;
+}
+
+/* --- Role Selector (Pills) --- */
+.role-selector-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.role-selector-wrapper > label {
+  display: block;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.role-pills-container {
+  display: inline-flex;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  padding: 4px;
+  background-color: #ffffff;
+}
+
+.role-btn {
+  padding: 0.5rem 2rem;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4b5563;
+  transition: all 0.2s ease;
+}
+
+.role-btn:hover:not(.role-btn-active) {
+  background-color: #f3f4f6;
+}
+
+.role-btn-active {
+  background-color: #155e2e;
+  color: #ffffff;
+}
+
+/* --- Submit Button --- */
+.submit-btn {
+  width: 100%;
+  background-color: #155e2e;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0f4422;
+}
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 768px) {
+  .hero-text {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+
+  .hero-image-wrapper {
+    min-height: 250px;
+  }
+
+  .hero-image-wrapper img {
+    max-height: 280px;
+  }
+
+  .role-pills-container {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .role-btn {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* --- Success Modal Overlay --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 1rem;
+  text-align: center;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Green circle with checkmark */
+.checkmark-circle {
+  background-color: #155e2e;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.checkmark-circle svg {
+  width: 40px;
+  height: 40px;
+  stroke: #ffffff;
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.modal-content h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 10px 0;
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+  color: #4b5563;
+  margin: 0 0 2rem 0;
+}
+
+/* Matches the white button with green border in screenshot */
+.modal-close-btn {
+  background-color: #ffffff;
+  border: 1px solid #155e2e;
+  color: #1f2937;
+  padding: 0.75rem 3rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background-color: #f0fdf4; /* Very light green hover */
+}
