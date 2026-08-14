@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import heroImage from "../assets/famers.png";
 
 const HeroPage = ({ heroRef }) => {
+  const navigate = useNavigate(); // Initialize navigate function
+
   return (
     <div>
       <section ref={heroRef} id="hero" className="section-wrapper">
@@ -17,8 +20,21 @@ const HeroPage = ({ heroRef }) => {
               access for those without a smartphone.
             </p>
             <div className="hero-buttons">
-              <button className="btn-primary">Partner with Us</button>
-              <button className="btn-secondary">Join Waitlist</button>
+              {/* Navigate to Partnership Screen */}
+              <button
+                className="btn-primary"
+                onClick={() => navigate("/partnership")}
+              >
+                Partner with Us
+              </button>
+
+              {/* Navigate to Waitlist Screen */}
+              <button
+                className="btn-secondary"
+                onClick={() => navigate("/waitlist")}
+              >
+                Join Waitlist
+              </button>
             </div>
           </div>
           <div className="hero-visual">

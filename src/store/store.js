@@ -1,31 +1,24 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import userReducer from "./userslice";
+import partnersReducer from "./partnersSlice"; // <-- 1. Import new slice
 
-// ⚠️ FIX: Do NOT import from "redux-persist/lib/storage"!
-// Instead, create a manual storage engine directly using the browser's localStorage.
-// This bypasses the Vite bundling error completely.
+// Custom localStorage engine (from our previous fix)
 const storage = {
-  getItem: (key) => {
-    return Promise.resolve(localStorage.getItem(key));
-  },
-  setItem: (key, value) => {
-    return Promise.resolve(localStorage.setItem(key, value));
-  },
-  removeItem: (key) => {
-    return Promise.resolve(localStorage.removeItem(key));
-  },
+  getItem: (key) => Promise.resolve(localStorage.getItem(key)),
+  setItem: (key, value) => Promise.resolve(localStorage.setItem(key, value)),
+  removeItem: (key) => Promise.resolve(localStorage.removeItem(key)),
 };
 
-// Configuration for Redux Persist
 const persistConfig = {
   key: "root",
-  storage, // 👈 Use the custom storage engine we just created
-  whitelist: ["user"], // Only persist the 'user' slice
+  storage,
+  whitelist: ["user", "partners"], // <-- 2. Add 'partners' to persist
 };
 
 const rootReducer = combineReducers({
   user: userReducer,
+  partners: partnersReducer, // <-- 3. Add to the root reducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

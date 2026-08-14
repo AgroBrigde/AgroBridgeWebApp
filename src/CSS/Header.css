@@ -138,3 +138,20 @@
     display: none; /* Hides links gracefully on mobile screens to avoid stacking clutter */
   }
 }
+/* --- Back to Home Button --- */
+.back-home-btn {
+  background: #1b5e20; /* The color you requested */
+  color: #ffffff;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 4px; /* Adjust this to match your other button's roundness */
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  /* Optional: Match the exact sizing of your Button component */
+}
+
+.back-home-btn:hover {
+  background: #144d18; /* Slightly darker on hover */
+}

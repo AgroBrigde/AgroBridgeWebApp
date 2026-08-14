@@ -5,6 +5,7 @@ import MainLayout from "./Layout/MainLayout";
 import LandingPage from "./Pages/LandingPage";
 import Landing from "./Components/Landing";
 import WaitlistScreen from "./Pages/WaitListScreen";
+import PartnersScreen from "./Pages/PartnershipScreen";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="landing" element={<Landing />} />
           <Route path="waitlist" element={<WaitlistScreen />} />
+          <Route path="partnership" element={<PartnersScreen />} />
         </Route>
       </Routes>
     </BrowserRouter>
