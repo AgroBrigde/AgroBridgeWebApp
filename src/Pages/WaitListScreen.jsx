@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux"; // Updated imports
+import { useDispatch, useSelector } from "react-redux";
 import {
   setUserData,
   openSuccessModal,
   closeSuccessModal,
-} from "../store/userslice"; // Updated imports
+} from "../store/userslice";
 import "../CSS/WaitlistScreen.css";
 import peopleImg from "../assets/people.png";
 
 const WaitlistScreen = () => {
   const dispatch = useDispatch();
-  // Read if modal should be open from Redux
   const isModalOpen = useSelector((state) => state.user.isModalOpen);
+  // ADDED: Get the saved user data from Redux to verify later
+  const savedUserData = useSelector((state) => state.user.userData);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -29,6 +30,9 @@ const WaitlistScreen = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // ADDED: See exactly what data is being sent in your browser's Console (F12)
+    console.log("🚀 Submitted Form Data:", formData);
+
     // 1. Save the user data to Redux (including the role!)
     dispatch(setUserData(formData));
 
@@ -45,8 +49,13 @@ const WaitlistScreen = () => {
     });
   };
 
+  // Optional: Log what Redux currently holds (checks persistence)
+  console.log("💾 Data currently stored in Redux:", savedUserData);
+
   return (
     <div className="waitlist-container">
+      {/* ... (Your existing Hero and Form sections are unchanged and correct) ... */}
+
       {/* ---------------- HERO SECTION ---------------- */}
       <div className="hero-section">
         <div className="hero-text">
@@ -143,7 +152,6 @@ const WaitlistScreen = () => {
         <div className="modal-overlay">
           <div className="modal-content">
             <div className="checkmark-circle">
-              {/* SVG Checkmark Icon */}
               <svg viewBox="0 0 24 24">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
