@@ -5,7 +5,7 @@ import {
   openSuccessModal,
   closeSuccessModal,
 } from "../store/userslice";
-import "../CSS/WaitlistScreen.css";
+import "../CSS/WaitlistScreens.css";
 import peopleImg from "../assets/people.png";
 
 const WaitlistScreen = () => {
