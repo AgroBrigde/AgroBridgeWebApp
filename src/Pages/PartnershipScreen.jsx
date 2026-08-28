@@ -1,60 +1,92 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setPartnerData,
   openPartnerSuccessModal,
   closePartnerSuccessModal,
 } from "../store/partnersSlice";
+import { submitPartnershipRequest } from "../api/partnershipService";
 import "../CSS/PartnershipScreen.css";
-import partnersImg from "../assets/partners.png"; // Make sure you save your hero image here
+import partnersImg from "../assets/partners.png";
+
+const PARTNERSHIP_TYPES = [
+  { label: "Investor", value: "Investor" },
+  { label: "Co-operative", value: "Co-operative" },
+  { label: "Agent Network", value: "Agent Network" },
+  { label: "Logistics", value: "Logistics" },
+  { label: "Payment Provider", value: "Payment Provider" },
+  { label: "Distributor", value: "Distributor" },
+  { label: "Other", value: "Other" },
+];
+
+const INITIAL_FORM_DATA = {
+  orgName: "",
+  contactPerson: "",
+  email: "",
+  phone: "",
+  partnerType: "Investor",
+  message: "",
+};
 
 const PartnershipScreen = () => {
   const dispatch = useDispatch();
-  // Read modal state from Redux
   const isModalOpen = useSelector((state) => state.partners.isModalOpen);
 
-  // Initial Form Data
-  const [formData, setFormData] = useState({
-    orgName: "",
-    contactPerson: "",
-    email: "",
-    phone: "",
-    partnerType: "Investor", // Default selection
-    message: "",
-  });
+  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [partnershipResult, setPartnershipResult] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errorMessage) setErrorMessage("");
   };
 
-  const handleSubmit = (e) => {
+  const handleTypeChange = (partnerType) => {
+    setFormData((prev) => ({ ...prev, partnerType }));
+    if (errorMessage) setErrorMessage("");
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
 
-    // 1. Save to Redux (and localStorage due to persist)
-    dispatch(setPartnerData(formData));
+    setIsSubmitting(true);
+    setErrorMessage("");
 
-    // 2. Open the modal
-    dispatch(openPartnerSuccessModal());
+    try {
+      const result = await submitPartnershipRequest(formData);
 
-    // 3. Reset form fields
-    setFormData({
-      orgName: "",
-      contactPerson: "",
-      email: "",
-      phone: "",
-      partnerType: "Investor",
-      message: "",
-    });
+      setPartnershipResult(result?.data ?? null);
+      dispatch(setPartnerData(formData));
+      dispatch(openPartnerSuccessModal());
+      setFormData(INITIAL_FORM_DATA);
+    } catch (error) {
+      setErrorMessage(
+        error.message ||
+          "We couldn't complete your partnership request. Please try again.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleCloseModal = () => {
+    dispatch(closePartnerSuccessModal());
+    setPartnershipResult(null);
   };
 
   return (
-    <div className="partnership-container">
-      {/* ------------ HERO SECTION ------------ */}
-      <div className="hero-section">
-        <div className="hero-text">
-          <h1>
-            Let's Build a Stronger
+    <div className="partnership-page partnership-container">
+      <section
+        className="partnership-hero"
+        aria-labelledby="partnership-heading"
+      >
+        <div className="partnership-hero-copy">
+          <span className="partnership-eyebrow">PARTNERSHIPS</span>
+          <h1 id="partnership-heading">
+            Let&apos;s Build a Stronger
             <br />
             Agricultural Ecosystem
             <br />
@@ -62,19 +94,34 @@ const PartnershipScreen = () => {
           </h1>
           <p>
             Partner with AgroBridge as a cooperative, agent network, logistics
-            provider, payment provider, or investor.
+            provider, payment provider, distributor, or investor.
           </p>
-          <p>Let's grow this together.</p>
+          <p className="partnership-supporting-copy">
+            Let&apos;s grow this together.
+          </p>
         </div>
-        <div className="hero-image-wrapper">
-          <img src={partnersImg} alt="AgroBridge Partners" />
+        <div className="partnership-hero-image" aria-hidden="true">
+          <img src={partnersImg} alt="" />
         </div>
-      </div>
+      </section>
 
-      {/* ------------ FORM SECTION ------------ */}
-      <div className="form-section">
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
+      <section
+        className="partnership-form-section"
+        aria-labelledby="partnership-form-heading"
+      >
+        <div className="partnership-form-intro">
+          <span className="partnership-form-kicker">
+            PARTNER WITH AGROBRIDGE
+          </span>
+          <h2 id="partnership-form-heading">Start a conversation</h2>
+          <p>
+            Tell us about your organization and how you would like to build with
+            AgroBridge.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} noValidate>
+          <div className="partnership-form-group">
             <label htmlFor="orgName">Organization Name</label>
             <input
               type="text"
@@ -82,12 +129,13 @@ const PartnershipScreen = () => {
               name="orgName"
               value={formData.orgName}
               onChange={handleChange}
-              placeholder="Organization Name"
+              placeholder="e.g. GreenFields Agro Ltd"
+              autoComplete="organization"
               required
             />
           </div>
 
-          <div className="form-group">
+          <div className="partnership-form-group">
             <label htmlFor="contactPerson">Contact Person</label>
             <input
               type="text"
@@ -95,12 +143,13 @@ const PartnershipScreen = () => {
               name="contactPerson"
               value={formData.contactPerson}
               onChange={handleChange}
-              placeholder="Contact Person"
+              placeholder="e.g. Chidinma Okafor"
+              autoComplete="name"
               required
             />
           </div>
 
-          <div className="form-group">
+          <div className="partnership-form-group">
             <label htmlFor="email">Email Address</label>
             <input
               type="email"
@@ -108,12 +157,13 @@ const PartnershipScreen = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Email Address"
+              placeholder="partnerships@company.com"
+              autoComplete="email"
               required
             />
           </div>
 
-          <div className="form-group">
+          <div className="partnership-form-group">
             <label htmlFor="phone">Phone Number</label>
             <input
               type="tel"
@@ -121,38 +171,34 @@ const PartnershipScreen = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="Phone Number"
+              placeholder="e.g. +234 801 234 5678"
+              autoComplete="tel"
               required
             />
           </div>
 
-          {/* Partnership Type Pills */}
-          <div className="pills-selector-wrapper">
-            <label>Partnership Type:</label>
-            <div className="pills-container">
-              {[
-                "Investor",
-                "Co-operative",
-                "Agent Network",
-                "Logistics",
-                "Payment Provider",
-                "Other",
-              ].map((type) => (
+          <div className="partnership-type-selector">
+            <label id="partnership-type-label">Partnership Type</label>
+            <div
+              className="partnership-type-pills"
+              role="group"
+              aria-labelledby="partnership-type-label"
+            >
+              {PARTNERSHIP_TYPES.map((type) => (
                 <button
-                  key={type}
+                  key={type.value}
                   type="button"
-                  onClick={() =>
-                    setFormData({ ...formData, partnerType: type })
-                  }
-                  className={`pill-btn ${formData.partnerType === type ? "pill-btn-active" : ""}`}
+                  onClick={() => handleTypeChange(type.value)}
+                  className={`partnership-type-btn ${formData.partnerType === type.value ? "is-active" : ""}`}
+                  aria-pressed={formData.partnerType === type.value}
                 >
-                  {type}
+                  {type.label}
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="form-group">
+          <div className="partnership-form-group">
             <label htmlFor="message">Message</label>
             <textarea
               id="message"
@@ -160,33 +206,74 @@ const PartnershipScreen = () => {
               rows="5"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Message"
+              placeholder="Tell us what you would like to explore with AgroBridge."
               required
-            ></textarea>
+            />
           </div>
 
-          <button type="submit" className="submit-btn">
-            Submit Partnership Request
+          {errorMessage && (
+            <div className="partnership-error" role="alert">
+              {errorMessage}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            className="partnership-submit-btn"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Sending..." : "Submit Partnership Request"}
           </button>
         </form>
-      </div>
+      </section>
 
-      {/* ------------ SUCCESS MODAL ------------ */}
       {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <div className="checkmark-circle">
+        <div
+          className="partnership-modal-overlay"
+          role="presentation"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) handleCloseModal();
+          }}
+        >
+          <div
+            className="partnership-modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="partnership-success-title"
+          >
+            <div className="partnership-checkmark-circle" aria-hidden="true">
               <svg viewBox="0 0 24 24">
-                <polyline points="20 6 9 17 4 12"></polyline>
+                <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <h2>Request Sent!</h2>
-            <p>Thanks — our team will reach out within a few days.</p>
+
+            <span className="partnership-modal-kicker">
+              PARTNERSHIP RECEIVED
+            </span>
+            <h2 id="partnership-success-title">
+              Request submitted successfully.
+            </h2>
+            <p>
+              Thanks for reaching out. Our team will review your request and
+              follow up with you.
+            </p>
+
+            {partnershipResult?.position != null && (
+              <div className="partnership-position-card">
+                <span>Your partnership waitlist position</span>
+                <strong>#{partnershipResult.position}</strong>
+                {partnershipResult.status && (
+                  <small>Status: {partnershipResult.status}</small>
+                )}
+              </div>
+            )}
+
             <button
-              className="modal-close-btn"
-              onClick={() => dispatch(closePartnerSuccessModal())}
+              type="button"
+              className="partnership-modal-close-btn"
+              onClick={handleCloseModal}
             >
-              Close
+              Done
             </button>
           </div>
         </div>

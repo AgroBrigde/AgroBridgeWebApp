@@ -1,282 +1,438 @@
-/* WaitlistScreen.css */
-* {
-  box-sizing: border-box;
-}
-
-.waitlist-container {
+.waitlist-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #1f2937;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif;
-  background-color: #ffffff;
-  min-height: 100vh;
-  width: 100%;
 }
 
-/* --- Hero Section --- */
-.hero-section {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+.waitlist-page,
+.waitlist-page * {
+  box-sizing: border-box;
 }
 
-.hero-text {
-  flex: 1;
-  background-color: #f6fcf1;
-  padding: 4rem 3rem;
+.waitlist-hero {
+  width: calc(100% - 240px);
+  max-width: 1440px;
+  min-height: 420px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: 0 0 20px 20px;
+  background: #f6fcf1;
+}
+
+.waitlist-hero-copy {
+  min-width: 0;
+  padding: 72px 72px 72px 72px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 300px;
 }
 
-.hero-text h1 {
-  font-size: 2rem;
+.waitlist-eyebrow,
+.waitlist-form-kicker,
+.waitlist-modal-kicker {
+  color: #1b5e3a;
+  font-size: 0.78rem;
   font-weight: 700;
-  color: #1f2937;
-  margin: 0 0 4px 0;
+  line-height: 1.2;
+  letter-spacing: 0.13em;
 }
 
-.hero-text h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
+.waitlist-eyebrow {
+  margin-bottom: 18px;
+}
+
+.waitlist-hero h1 {
+  margin: 0;
+  max-width: 620px;
+  color: #16221b;
+  font-size: clamp(2.3rem, 4vw, 4rem);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  font-weight: 750;
+}
+
+.waitlist-hero h1 span {
+  display: block;
   color: #155e2e;
-  margin: 0 0 16px 0;
 }
 
-.hero-text p {
-  color: #4b5563;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 0 0 12px 0;
+.waitlist-hero-copy p {
+  max-width: 570px;
+  margin: 24px 0 0;
+  color: #52605a;
+  font-size: 1.08rem;
+  line-height: 1.7;
 }
 
-.hero-image-wrapper {
-  flex: 1;
+.waitlist-hero-copy .waitlist-supporting-copy {
+  margin-top: 8px;
+  color: #155e2e;
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.waitlist-hero-image {
+  min-height: 420px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  /* Dark green gradient background like the screenshot */
-  background: linear-gradient(90deg, #3a6a3a, #1e4620);
-  min-height: 320px;
-  min-width: 300px;
   overflow: hidden;
+  background: linear-gradient(135deg, #3a6a3a, #1b5e20);
 }
 
-.hero-image-wrapper img {
-  max-height: 400px;
-  width: 100%;
-  object-fit: cover;
-  object-position: bottom center;
-  display: block;
-}
-
-/* --- Form Section --- */
-.form-section {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  color: #1f2937;
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-
-.form-group input:focus {
-  border-color: #155e2e;
-  box-shadow: 0 0 0 3px rgba(21, 94, 46, 0.1);
-}
-
-.form-group input::placeholder {
-  color: #9ca3af;
-}
-
-/* --- Role Selector (Pills) --- */
-.role-selector-wrapper {
-  margin-bottom: 1.5rem;
-}
-
-.role-selector-wrapper > label {
-  display: block;
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
-}
-
-.role-pills-container {
-  display: inline-flex;
-  border: 1px solid #e5e7eb;
-  border-radius: 9999px;
-  padding: 4px;
-  background-color: #ffffff;
-}
-
-.role-btn {
-  padding: 0.5rem 2rem;
-  border-radius: 9999px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #4b5563;
-  transition: all 0.2s ease;
-}
-
-.role-btn:hover:not(.role-btn-active) {
-  background-color: #f3f4f6;
-}
-
-.role-btn-active {
-  background-color: #155e2e;
-  color: #ffffff;
-}
-
-/* --- Submit Button --- */
-.submit-btn {
-  width: 100%;
-  background-color: #155e2e;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 1.05rem;
-  padding: 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  margin-top: 0.5rem;
-  transition: background-color 0.2s ease;
-}
-
-.submit-btn:hover {
-  background-color: #0f4422;
-}
-
-/* --- Responsive Design (Mobile) --- */
-@media (max-width: 768px) {
-  .hero-text {
-    padding: 2.5rem 1.5rem;
-  }
-
-  .hero-text h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero-text h2 {
-    font-size: 2rem;
-  }
-
-  .hero-image-wrapper {
-    min-height: 250px;
-  }
-
-  .hero-image-wrapper img {
-    max-height: 280px;
-  }
-
-  .role-pills-container {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .role-btn {
-    flex: 1;
-    text-align: center;
-  }
-}
-
-/* --- Success Modal Overlay --- */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+.waitlist-hero-image img {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  max-height: 460px;
+  object-fit: cover;
+  object-position: bottom center;
 }
 
-.modal-content {
-  background-color: #ffffff;
-  padding: 2.5rem 3rem;
-  border-radius: 1rem;
+.waitlist-form-section {
+  width: calc(100% - 240px);
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 72px 0 96px;
+}
+
+.waitlist-form-intro {
+  margin-bottom: 34px;
+}
+
+.waitlist-form-kicker {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.waitlist-form-intro h2 {
+  margin: 0;
+  color: #18231c;
+  font-size: clamp(1.85rem, 3vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.waitlist-form-intro p {
+  margin: 12px 0 0;
+  max-width: 650px;
+  color: #69756f;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.waitlist-form-group {
+  margin-bottom: 22px;
+}
+
+.waitlist-form-group label,
+.waitlist-role-selector > label {
+  display: block;
+  margin-bottom: 9px;
+  color: #374151;
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+.waitlist-form-group label span {
+  color: #98a09b;
+  font-weight: 500;
+}
+
+.waitlist-form-group input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 15px;
+  border: 1px solid #d9dfdb;
+  border-radius: 10px;
+  outline: none;
+  color: #1f2937;
+  background: #ffffff;
+  font: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.waitlist-form-group input::placeholder {
+  color: #a2aaa5;
+}
+
+.waitlist-form-group input:focus {
+  border-color: #1b5e3a;
+  box-shadow: 0 0 0 4px rgba(27, 94, 58, 0.09);
+}
+
+.waitlist-role-selector {
+  margin: 26px 0 22px;
+}
+
+.waitlist-role-pills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 5px;
+  border: 1px solid #dfe4e0;
+  border-radius: 12px;
+  background: #fbfcfb;
+}
+
+.waitlist-role-btn {
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #66716b;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.waitlist-role-btn:hover:not(.is-active) {
+  background: #f0f4f1;
+  color: #1f2937;
+}
+
+.waitlist-role-btn.is-active {
+  background: #155e2e;
+  color: #ffffff;
+  box-shadow: 0 2px 7px rgba(21, 94, 46, 0.16);
+}
+
+.waitlist-error {
+  margin: 8px 0 18px;
+  padding: 13px 14px;
+  border: 1px solid #f1c6c6;
+  border-radius: 10px;
+  background: #fff7f7;
+  color: #a32929;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.waitlist-submit-btn {
+  width: 100%;
+  min-height: 54px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 10px;
+  background: #155e2e;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.waitlist-submit-btn:hover:not(:disabled) {
+  background: #0f4422;
+  box-shadow: 0 8px 22px rgba(21, 94, 46, 0.14);
+  transform: translateY(-1px);
+}
+
+.waitlist-submit-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.waitlist-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(7, 18, 12, 0.58);
+  backdrop-filter: blur(5px);
+}
+
+.waitlist-modal-content {
+  width: min(100%, 460px);
+  padding: 38px;
+  border: 1px solid rgba(220, 228, 222, 0.9);
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 26px 70px rgba(8, 23, 14, 0.2);
   text-align: center;
-  max-width: 450px;
-  width: 90%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-/* Green circle with checkmark */
-.checkmark-circle {
-  background-color: #155e2e;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+.waitlist-checkmark-circle {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 18px;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 1.5rem;
+  border-radius: 50%;
+  background: #155e2e;
 }
 
-.checkmark-circle svg {
-  width: 40px;
-  height: 40px;
-  stroke: #ffffff;
-  stroke-width: 3;
+.waitlist-checkmark-circle svg {
+  width: 32px;
+  height: 32px;
   fill: none;
+  stroke: #ffffff;
   stroke-linecap: round;
   stroke-linejoin: round;
+  stroke-width: 2.8;
 }
 
-.modal-content h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin: 0 0 10px 0;
+.waitlist-modal-kicker {
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
-.modal-content p {
-  font-size: 1.1rem;
-  color: #4b5563;
-  margin: 0 0 2rem 0;
+.waitlist-modal-content h2 {
+  margin: 0;
+  color: #18231c;
+  font-size: 1.85rem;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
 }
 
-/* Matches the white button with green border in screenshot */
-.modal-close-btn {
-  background-color: #ffffff;
-  border: 1px solid #155e2e;
-  color: #1f2937;
-  padding: 0.75rem 3rem;
-  border-radius: 0.5rem;
+.waitlist-modal-content > p {
+  margin: 12px auto 0;
+  max-width: 350px;
+  color: #68736d;
   font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  line-height: 1.6;
 }
 
-.modal-close-btn:hover {
-  background-color: #f0fdf4; /* Very light green hover */
+.waitlist-position-card {
+  margin: 24px 0;
+  padding: 18px;
+  border: 1px solid #dfe9e2;
+  border-radius: 14px;
+  background: #f7fbf8;
+}
+
+.waitlist-position-card span,
+.waitlist-position-card small {
+  display: block;
+  color: #617068;
+}
+
+.waitlist-position-card span {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.waitlist-position-card strong {
+  display: block;
+  margin: 4px 0;
+  color: #155e2e;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.waitlist-position-card small {
+  font-size: 0.8rem;
+}
+
+.waitlist-modal-close-btn {
+  min-width: 150px;
+  min-height: 46px;
+  border: 1px solid #155e2e;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #155e2e;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.waitlist-modal-close-btn:hover {
+  background: #155e2e;
+  color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+  .waitlist-hero,
+  .waitlist-form-section {
+    width: calc(100% - 80px);
+  }
+
+  .waitlist-hero-copy {
+    padding: 58px 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .waitlist-hero,
+  .waitlist-form-section {
+    width: calc(100% - 40px);
+  }
+
+  .waitlist-hero {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .waitlist-hero-copy {
+    padding: 42px 24px 34px;
+  }
+
+  .waitlist-hero h1 {
+    font-size: clamp(2.15rem, 10vw, 3rem);
+  }
+
+  .waitlist-hero-image {
+    min-height: 280px;
+  }
+
+  .waitlist-form-section {
+    padding: 52px 0 72px;
+  }
+
+  .waitlist-role-pills {
+    gap: 5px;
+  }
+
+  .waitlist-role-btn {
+    min-height: 42px;
+    font-size: 0.9rem;
+  }
+
+  .waitlist-modal-content {
+    padding: 30px 22px;
+  }
+}
+
+@media (max-width: 540px) {
+  .waitlist-hero,
+  .waitlist-form-section {
+    width: calc(100% - 40px);
+  }
+
+  .waitlist-hero-copy {
+    padding: 34px 20px 30px;
+  }
+
+  .waitlist-hero-image {
+    min-height: 235px;
+  }
+
+  .waitlist-role-pills {
+    grid-template-columns: 1fr;
+  }
 }
