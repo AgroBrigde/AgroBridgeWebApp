@@ -1,258 +1,289 @@
-/* PartnershipScreen.css */
-.partnership-container {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: #ffffff;
-  min-height: 100vh;
-}
-
-/* --- Hero Section --- */
-.hero-section {
-  display: flex;
-  flex-wrap: wrap;
+.partnership-page {
+  --page-gutter: 120px;
   width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #1f2937;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-.hero-text {
-  flex: 1;
-  background-color: #f6fcf1;
-  padding: 4rem 3rem;
+.partnership-page,
+.partnership-page * { box-sizing: border-box; }
+
+.partnership-page .partnership-hero,
+.partnership-page .partnership-form-section {
+  width: calc(100% - (var(--page-gutter) * 2));
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.partnership-page .partnership-hero {
+  min-height: 420px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: 0 0 20px 20px;
+  background: #f6fcf1;
+}
+
+.partnership-page .partnership-hero-copy {
+  min-width: 0;
+  padding: 72px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 300px;
 }
 
-.hero-text h1 {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin: 0 0 16px 0;
-  line-height: 1.2;
+.partnership-page .partnership-eyebrow,
+.partnership-page .partnership-form-kicker,
+.partnership-page .partnership-modal-kicker {
+  display: inline-block;
+  color: #1b5e3a;
+  font-size: 0.77rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
 }
 
-.hero-text p {
-  color: #4b5563;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 0 0 12px 0;
+.partnership-page .partnership-eyebrow { margin-bottom: 14px; }
+
+.partnership-page .partnership-hero-copy h1 {
+  max-width: 680px;
+  margin: 0;
+  color: #16221b;
+  font-size: clamp(2.15rem, 3.8vw, 3.7rem);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  font-weight: 750;
 }
 
-.hero-image-wrapper {
-  flex: 1;
+.partnership-page .partnership-hero-copy p {
+  max-width: 620px;
+  margin: 24px 0 0;
+  color: #52605a;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.partnership-page .partnership-hero-copy p.partnership-supporting-copy {
+  margin-top: 8px;
+  color: #155e2e;
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.partnership-page .partnership-hero-image {
+  min-height: 420px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  background: linear-gradient(90deg, #3a6a3a, #1b5e20); /* Requested green */
-  min-height: 350px;
-  min-width: 300px;
   overflow: hidden;
+  background: linear-gradient(135deg, #3a6a3a, #1b5e20);
 }
 
-.hero-image-wrapper img {
-  max-height: 400px;
+.partnership-page .partnership-hero-image img {
   width: 100%;
+  height: 100%;
+  max-height: 460px;
   object-fit: cover;
   object-position: bottom center;
   display: block;
 }
 
-/* --- Form Section --- */
-.form-section {
+.partnership-page .partnership-form-section {
   max-width: 880px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 72px 0 96px;
 }
 
-.form-group {
-  margin-bottom: 1.5rem;
+.partnership-page .partnership-form-intro { margin-bottom: 30px; }
+
+.partnership-page .partnership-form-intro h2 {
+  margin: 8px 0;
+  color: #18231c;
+  font-size: clamp(1.9rem, 3vw, 2.55rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
 }
 
-.form-group label {
+.partnership-page .partnership-form-intro p {
+  max-width: 620px;
+  margin: 0;
+  color: #69756f;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.partnership-page .partnership-form-group { margin-bottom: 22px; }
+
+.partnership-page .partnership-form-group label,
+.partnership-page .partnership-type-selector > label {
   display: block;
-  font-weight: 500;
+  margin-bottom: 9px;
   color: #374151;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  color: #1f2937;
-  outline: none;
-  font-family: inherit;
-  transition: border-color 0.2s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: #1b5e20;
-  box-shadow: 0 0 0 3px rgba(27, 94, 32, 0.1);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-/* --- Partnership Type Pills --- */
-.pills-selector-wrapper {
-  margin-bottom: 1.5rem;
-}
-
-.pills-selector-wrapper > label {
-  display: block;
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
-}
-
-.pills-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.pill-btn {
-  padding: 0.5rem 1.25rem;
-  border-radius: 9999px;
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #4b5563;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.pill-btn:hover:not(.pill-btn-active) {
-  background-color: #f3f4f6;
-}
-
-.pill-btn-active {
-  background-color: #1b5e20;
-  border-color: #1b5e20;
-  color: #ffffff;
-}
-
-/* --- Submit Button --- */
-.submit-btn {
-  width: 100%;
-  background-color: #1b5e20;
-  color: #ffffff;
+  font-size: 0.94rem;
   font-weight: 600;
-  font-size: 1.05rem;
-  padding: 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  margin-top: 0.5rem;
-  transition: background-color 0.2s ease;
 }
 
-.submit-btn:hover {
-  background-color: #144d18;
-}
-
-/* --- Success Modal --- */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+.partnership-page .partnership-form-group input,
+.partnership-page .partnership-form-group textarea {
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  min-height: 52px;
+  padding: 12px 15px;
+  border: 1px solid #d9dfdb;
+  border-radius: 10px;
+  outline: none;
+  color: #1f2937;
+  background: #ffffff;
+  font: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.modal-content {
-  background-color: #ffffff;
-  padding: 2.5rem 3rem;
-  border-radius: 1rem;
+.partnership-page .partnership-form-group input:focus,
+.partnership-page .partnership-form-group textarea:focus {
+  border-color: #1b5e3a;
+  box-shadow: 0 0 0 4px rgba(27, 94, 58, 0.09);
+}
+
+.partnership-page .partnership-form-group textarea { resize: vertical; min-height: 140px; }
+.partnership-page .partnership-type-selector { margin: 26px 0 22px; }
+.partnership-page .partnership-type-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.partnership-page .partnership-type-btn {
+  padding: 0.58rem 1.15rem;
+  border: 1px solid #dfe4e0;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #66716b;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.partnership-page .partnership-type-btn:hover:not(.is-active) { background: #f3f6f3; color: #1f2937; }
+.partnership-page .partnership-type-btn.is-active { border-color: #155e2e; background: #155e2e; color: #ffffff; }
+
+.partnership-page .partnership-error {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border: 1px solid #f2caca;
+  border-radius: 10px;
+  background: #fff6f6;
+  color: #9b2c2c;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.partnership-page .partnership-submit-btn {
+  width: 100%;
+  min-height: 54px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 10px;
+  background: #155e2e;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.partnership-page .partnership-submit-btn:hover:not(:disabled) { background: #0f4422; box-shadow: 0 8px 22px rgba(21, 94, 46, 0.14); transform: translateY(-1px); }
+.partnership-page .partnership-submit-btn:disabled { cursor: not-allowed; opacity: 0.65; }
+
+.partnership-page .partnership-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(7, 18, 12, 0.58);
+  backdrop-filter: blur(5px);
+}
+
+.partnership-page .partnership-modal-content {
+  width: min(100%, 460px);
+  padding: 38px;
+  border: 1px solid rgba(220, 228, 222, 0.9);
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 26px 70px rgba(8, 23, 14, 0.2);
   text-align: center;
-  max-width: 450px;
-  width: 90%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.checkmark-circle {
-  background-color: #1b5e20;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+.partnership-page .partnership-checkmark-circle {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 18px;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 1.5rem;
+  border-radius: 50%;
+  background: #155e2e;
 }
 
-.checkmark-circle svg {
-  width: 40px;
-  height: 40px;
-  stroke: #ffffff;
-  stroke-width: 3;
+.partnership-page .partnership-checkmark-circle svg {
+  width: 32px;
+  height: 32px;
   fill: none;
+  stroke: #ffffff;
   stroke-linecap: round;
   stroke-linejoin: round;
+  stroke-width: 2.8;
 }
 
-.modal-content h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin: 0 0 10px 0;
+.partnership-page .partnership-modal-content h2 { margin: 8px 0 0; color: #18231c; font-size: 1.85rem; line-height: 1.15; }
+.partnership-page .partnership-modal-content > p { margin: 12px auto 24px; max-width: 350px; color: #68736d; font-size: 1rem; line-height: 1.6; }
+
+.partnership-page .partnership-position-card {
+  margin: 0 0 24px;
+  padding: 16px;
+  border: 1px solid #dbe6de;
+  border-radius: 14px;
+  background: #f7fbf8;
 }
 
-.modal-content p {
-  font-size: 1.1rem;
-  color: #4b5563;
-  margin: 0 0 2rem 0;
-}
+.partnership-page .partnership-position-card span,
+.partnership-page .partnership-position-card small { display: block; color: #69756f; }
+.partnership-page .partnership-position-card span { font-size: 0.84rem; font-weight: 600; }
+.partnership-page .partnership-position-card strong { display: block; margin: 2px 0 4px; color: #155e2e; font-size: 2.15rem; line-height: 1; }
+.partnership-page .partnership-position-card small { font-size: 0.82rem; }
 
-.modal-close-btn {
-  background-color: #ffffff;
-  border: 1px solid #1b5e20;
-  color: #1f2937;
-  padding: 0.75rem 3rem;
-  border-radius: 0.5rem;
-  font-size: 1rem;
+.partnership-page .partnership-modal-close-btn {
+  min-width: 150px;
+  min-height: 46px;
+  border: 1px solid #155e2e;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #155e2e;
   cursor: pointer;
-  transition: all 0.2s ease;
+  font: inherit;
+  font-weight: 700;
 }
 
-.modal-close-btn:hover {
-  background-color: #f0fdf4;
+.partnership-page .partnership-modal-close-btn:hover { background: #155e2e; color: #ffffff; }
+
+@media (max-width: 1200px) {
+  .partnership-page { --page-gutter: 40px; }
+  .partnership-page .partnership-hero-copy { padding: 58px 48px; }
 }
 
-/* --- Responsive --- */
 @media (max-width: 768px) {
-  .hero-text {
-    padding: 2.5rem 1.5rem;
-  }
-  .hero-text h1 {
-    font-size: 1.75rem;
-  }
-  .hero-image-wrapper {
-    min-height: 250px;
-  }
-  .pills-container {
-    width: 100%;
-  }
-  .pill-btn {
-    flex: 1;
-    text-align: center;
-  }
+  .partnership-page { --page-gutter: 20px; }
+  .partnership-page .partnership-hero { width: calc(100% - (var(--page-gutter) * 2)); min-height: 0; grid-template-columns: 1fr; border-radius: 0 0 16px 16px; }
+  .partnership-page .partnership-hero-copy { padding: 42px 24px 34px; }
+  .partnership-page .partnership-hero-copy h1 { font-size: clamp(2.1rem, 9vw, 3rem); }
+  .partnership-page .partnership-hero-image { min-height: 280px; }
+  .partnership-page .partnership-form-section { padding: 52px 0 72px; }
+  .partnership-page .partnership-type-pills { gap: 6px; }
+  .partnership-page .partnership-modal-content { padding: 30px 22px; }
+}
+
+@media (max-width: 540px) {
+  .partnership-page .partnership-hero-copy { padding: 34px 20px 30px; }
+  .partnership-page .partnership-hero-image { min-height: 235px; }
+  .partnership-page .partnership-type-btn { flex: 1 1 auto; }
 }

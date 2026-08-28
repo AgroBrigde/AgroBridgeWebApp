@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -14,6 +14,24 @@ const MainLayout = () => {
   const heroRef = useRef(null);
   const gapRef = useRef(null);
   const ctaRef = useRef(null);
+
+  useEffect(() => {
+    const sectionId = location.state?.scrollToSection;
+    if (!sectionId) return;
+
+    const sectionRefs = {
+      "how-it-works": howItWorksRef,
+      solutions: solutionsRef,
+      traction: tractionRef,
+      partners: partnersRef,
+    };
+    const targetRef = sectionRefs[sectionId];
+
+    if (targetRef?.current) {
+      targetRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState({}, document.title, window.location.href);
+    }
+  }, [location]);
 
   // Scroll function
   const scrollToSection = (sectionId) => {
