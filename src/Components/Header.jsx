@@ -2,37 +2,54 @@ import React from "react";
 import "../CSS/Header.css";
 import logo from "../assets/logo.png";
 import Button from "./Button";
-import { useNavigate } from "react-router-dom"; // <-- FIXED: added curly braces
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = ({ scrollToSection }) => {
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  const handleSectionNavigation = (sectionId) => {
+    if (isHomePage) {
+      scrollToSection(sectionId);
+      return;
+    }
+
+    navigate("/", { state: { scrollToSection: sectionId } });
+  };
+
   return (
     <header className="header">
-      <div className="logo-container">
+      <button
+        type="button"
+        className="logo-container"
+        onClick={() => navigate("/")}
+        aria-label="Go to home"
+      >
         <img src={logo} alt="Logo" className="logo" />
-      </div>
+      </button>
 
       <nav className="nav-links">
         <button
-          onClick={() => scrollToSection("how-it-works")}
+          onClick={() => handleSectionNavigation("how-it-works")}
           className="nav-link-btn"
         >
           How It Works
         </button>
         <button
-          onClick={() => scrollToSection("solutions")}
+          onClick={() => handleSectionNavigation("solutions")}
           className="nav-link-btn"
         >
           Solution
         </button>
         <button
-          onClick={() => scrollToSection("traction")}
+          onClick={() => handleSectionNavigation("traction")}
           className="nav-link-btn"
         >
           Traction
         </button>
         <button
-          onClick={() => scrollToSection("partners")}
+          onClick={() => handleSectionNavigation("partners")}
           className="nav-link-btn"
         >
           Partners
@@ -40,7 +57,10 @@ const Header = ({ scrollToSection }) => {
       </nav>
 
       <div className="button-container">
-        <Button onClick={() => navigate("/waitlist")} text="Join Waitlist" />
+        <Button
+          onClick={() => navigate(isHomePage ? "/waitlist" : "/")}
+          text={isHomePage ? "Join Waitlist" : "Home"}
+        />
       </div>
     </header>
   );
