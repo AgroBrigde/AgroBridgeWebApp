@@ -23,6 +23,21 @@ const INITIAL_FORM_DATA = {
   location: "",
 };
 
+// Helper function to convert raw input (e.g. "08012345678" or "8012345678") to "+2348012345678"
+const formatNigerianPhone = (phone) => {
+  const digits = phone.replace(/\D/g, "");
+  if (!digits) return "";
+
+  // Handle case where user typed 234 explicitly
+  if (digits.startsWith("234")) {
+    return `+${digits}`;
+  }
+
+  // Strip leading 0 if present
+  const subscriberNumber = digits.startsWith("0") ? digits.slice(1) : digits;
+  return `+234${subscriberNumber}`;
+};
+
 const WaitlistScreen = () => {
   const dispatch = useDispatch();
   const isModalOpen = useSelector((state) => state.user.isModalOpen);
@@ -50,11 +65,17 @@ const WaitlistScreen = () => {
     setIsSubmitting(true);
     setErrorMessage("");
 
+    // Format phone number before sending API payload
+    const payload = {
+      ...formData,
+      phoneNumber: formatNigerianPhone(formData.phoneNumber),
+    };
+
     try {
-      const result = await joinWaitlist(formData);
+      const result = await joinWaitlist(payload);
 
       setWaitlistResult(result?.data ?? null);
-      dispatch(setUserData(formData));
+      dispatch(setUserData(payload));
       dispatch(openSuccessModal());
       setFormData(INITIAL_FORM_DATA);
     } catch (error) {
@@ -130,7 +151,7 @@ const WaitlistScreen = () => {
               name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleChange}
-              placeholder="e.g. +234 801 234 5678"
+              placeholder="e.g. 08012345678"
               autoComplete="tel"
               required
             />

@@ -6,6 +6,18 @@ const roleMap = {
   Agent: "AGENT",
 };
 
+const formatNigerianPhone = (phone = "") => {
+  const digits = phone.replace(/\D/g, "");
+  if (!digits) return "";
+
+  if (digits.startsWith("234")) {
+    return `+${digits}`;
+  }
+
+  const subscriberNumber = digits.startsWith("0") ? digits.slice(1) : digits;
+  return `+234${subscriberNumber}`;
+};
+
 const getErrorMessage = (error) => {
   const responseData = error?.response?.data;
   const detail = responseData?.detail;
@@ -52,7 +64,7 @@ const getErrorMessage = (error) => {
 export const joinWaitlist = async (formData) => {
   const payload = {
     email: formData.email?.trim() || "",
-    phone: formData.phoneNumber?.trim() || "",
+    phone: formatNigerianPhone(formData.phoneNumber),
     fullName: formData.fullName?.trim() || "",
     role: roleMap[formData.role] ?? formData.role,
     location: formData.location?.trim() || "",
